@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Illuminate\Routing\Controller; 
 
 class PostController extends Controller
 {
@@ -14,10 +14,10 @@ class PostController extends Controller
             "posts" => Post::all(),
         ]);
     }
-    public function getDetail($slug) {
+    public function getDetail(Post $post) {
         return view('detail',[
             "title" => "single post",
-            "post" => Post::find($slug),
+            "post" => $post
         ]);
     }
 }

@@ -4,7 +4,7 @@
     <article>
       <h1>{{ $post['title'] }}</h1>
       <h5>{{ $post['author'] }}</h5>
-      <p>{{ $post['body'] }}</p>
+      {!! $post->body !!}
     </article>
-    <a href="/posts"></a>
+    <a href="/posts">back</a>
 @endsection
