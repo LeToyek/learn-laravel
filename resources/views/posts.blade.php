@@ -1,13 +1,14 @@
 @extends('layouts.main')
 
 @section('container')
+    <h1 class="mb-5">{{ $title }}</h1>
     @foreach ($posts as $post)
         <article class="mb-5 border-bottom pb-3">
-            <a class="text-decoration-none" href="post/{{ $post->slug }}">
+            <a class="text-decoration-none" href="../post/{{ $post->slug }}">
                 <h2>{{ $post->title }}</h2>
             </a>
             <h5>by
-                <a class="text-decoration-none" href="author-posts/{{ $post->user->name }}">{{ $post->user->name }}</a> in
+                <a class="text-decoration-none" href="../author-posts/{{ $post->user->name }}">{{ $post->user->name }}</a> in
                 <a class="text-decoration-none" href="/categories/{{ $post->category->slug }}">
                     {{ $post->category->name }}
                 </a>
@@ -16,7 +17,7 @@
                 {{ $post->excerpt }}
             </p>
 
-            <a class="text-decoration-none" href="post/{{ $post->slug }}">Read more...</a>
+            <a class="text-decoration-none" href="../post/{{ $post->slug }}">Read more...</a>
         </article>
     @endforeach
 @endsection

@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         return view('categories', [
             "title" => "Post-Categories",
-            "categories" => Category::all()
+            "categories" => Category::with(['posts'])->latest()->get()
         ]);
     }
 
