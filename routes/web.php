@@ -7,7 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,9 @@ Route::get('/categories',[CategoryController::class,'index']);
 Route::get('/author',[UserController::class,'show'] );
 Route::get('/author/{author:name}',[UserController::class,'show'] );
 Route::get('/login', [LoginController::class,'index']);
+Route::post('/login', [LoginController::class,'store']);
+Route::get('/register',[RegisterController::class,'index']);
+Route::post('/register',[RegisterController::class,'store']);
 
 
 ?>
