@@ -8,11 +8,15 @@ use Illuminate\Routing\Controller;
 
 class PostController extends Controller
 {
+    
     public function index(){
+
+
+        
         return view('posts',[
             "title" => "All Posts",
             // "posts" => Post::all(),
-            "posts" => Post::with(['user','category'])->latest()->get(),
+            "posts" => Post::latest()->filter(request(['search','category','author']))->get(),
         ]);
     }
     public function getDetail(Post $post) {

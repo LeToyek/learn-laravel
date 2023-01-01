@@ -1,11 +1,12 @@
-<?php
+<?php 
 
-use App\Http\Controllers\CategoryController;
+use App\Models\Post;
+use App\Models\Category;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-use App\Models\Category;
-use App\Models\Post;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
 
 
 /*
@@ -24,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home', [
+    return view('login.index', [
         "title" => "home"
     ]);
 });
@@ -44,4 +45,9 @@ Route::get('/categories/{category:slug}',function(Category $category){
     ]);
 });
 Route::get('/categories',[CategoryController::class,'index']);
-Route::get('/author-posts/{author:name}',[UserController::class,'show'] );
+Route::get('/author',[UserController::class,'show'] );
+Route::get('/author/{author:name}',[UserController::class,'show'] );
+Route::get('/login', [LoginController::class,'index']);
+
+
+?>
