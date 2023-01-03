@@ -36,6 +36,8 @@
                                 </span>
                             </a>
                             <form class="d-inline" action="/dashboard/posts/{{ $post->slug }}" method="POST">
+                                @method('delete')
+                                @csrf
                                 <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">
                                     <span data-feather="x-circle">
                                     </span>
