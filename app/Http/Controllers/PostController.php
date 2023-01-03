@@ -19,7 +19,7 @@ class PostController extends Controller
             "posts" => Post::latest()->filter(request(['search','category','author']))->get(),
         ]);
     }
-    public function getDetail(Post $post) {
+    public function show(Post $post) {
         return view('detail',[
             "title" => "single post",
             "post" => $post

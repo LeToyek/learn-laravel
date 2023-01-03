@@ -30,7 +30,7 @@
                 <p>
                     <small>By.
                         <a class="text-decoration-none"
-                            href="../author/{{ $posts[0]->author->name }}">{{ $posts[0]->author->name }}</a>
+                            href="../posts?author={{ $posts[0]->author->name }}">{{ $posts[0]->author->name }}</a>
                         in
                         <a class="text-decoration-none" href="/posts?category={{ $posts[0]->category->slug }}">
                             {{ $posts[0]->category->name }}
@@ -39,7 +39,7 @@
                     </small>
                 </p>
                 <p class="card-text">{{ $posts[0]->excerpt }}</p>
-                <a class="text-decoration-none btn btn-primary" href="../post/{{ $posts[0]->slug }}">Read more</a>
+                <a class="text-decoration-none btn btn-primary" href="../posts/{{ $posts[0]->slug }}">Read more</a>
             </div>
         </div>
     @else
@@ -58,7 +58,7 @@
                         <img src="https://source.unsplash.com/500x400/?{{ $post->category->name }}" class="card-img-top"
                             alt="{{ $post->category->name }}">
                         <div class="card-body">
-                            <h5 class="card-title"> <a class="text-decoration-none" href="../post/{{ $post->slug }}">
+                            <h5 class="card-title"> <a class="text-decoration-none" href="../posts/{{ $post->slug }}">
                                     {{ $post->title }}
                                 </a></h5>
                             <p class="card-text">
@@ -72,7 +72,7 @@
                                 </small>
                             </p>
                             <p class="card-text">{{ $post->excerpt }}</p>
-                            <a href="../post/{{ $post->slug }}" class="text-decoration-none btn btn-primary">Read
+                            <a href="../posts/{{ $post->slug }}" class="text-decoration-none btn btn-primary">Read
                                 more</a>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
 @endsection
 
 {{-- <article class="mb-5 border-bottom pb-3">
-        <a class="text-decoration-none" href="../post/{{ $post->slug }}">
+        <a class="text-decoration-none" href="../posts/{{ $post->slug }}">
             <h2>{{ $post->title }}</h2>
         </a>
         <p>by
