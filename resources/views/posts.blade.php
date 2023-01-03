@@ -2,7 +2,6 @@
 
 @section('container')
     <h1 class="text-center mb-3">{{ $title }}</h1>
-
     <div class="row justify-content-center mb-3">
         <div class="col-md-6">
             <form action="/posts" method="get">
@@ -23,9 +22,15 @@
 
     @if ($posts->count())
         <div class="card mb-3">
-            <img src="https://source.unsplash.com/1200x400/?{{ $posts[0]->category->name }}" class="card-img-top"
-                alt="...">
             <div class="card-body text-center">
+                @if ($posts[0]->image != null)
+                    <div class="wrapper" style="max-height: 200px;overflow: hidden;">
+                        <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="image {{ $posts[0]->name }}" class="img-fluid">
+                    </div>
+                @else
+                    <img src="https://source.unsplash.com/1200x400/?{{ $posts[0]->category->name }}"
+                        alt="{{ $posts[0]->category->name }}" class="img-fluid">
+                @endif
                 <h2 class="card-title">{{ $posts[0]->title }}</h2>
                 <p>
                     <small>By.
@@ -55,8 +60,13 @@
                             <div class="position-absolute px-3 py-2 text-white"
                                 style="background-color: rgba(0, 0, 0, 0.7)">{{ $post->category->name }}</div>
                         </a>
-                        <img src="https://source.unsplash.com/500x400/?{{ $post->category->name }}" class="card-img-top"
-                            alt="{{ $post->category->name }}">
+                        @if ($post->image != null)
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="image {{ $post->name }}"
+                                class="img-fluid mt-3">
+                        @else
+                            <img src="https://source.unsplash.com/1200x600/?{{ $post->category->name }}"
+                                alt="{{ $post->category->name }}" class="img-fluid">
+                        @endif
                         <div class="card-body">
                             <h5 class="card-title"> <a class="text-decoration-none" href="../posts/{{ $post->slug }}">
                                     {{ $post->title }}

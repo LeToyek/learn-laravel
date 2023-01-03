@@ -6,7 +6,8 @@
             <div class="col-md-8">
                 <h1>{{ $post['title'] }}</h1>
                 <a href="../posts" class="btn btn-success"><span data-feather="arrow-left"></span> Back to My Post</a>
-                <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning"><span data-feather="edit"></span> Edit</a>
+                <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning"><span data-feather="edit"></span>
+                    Edit</a>
                 <form class="d-inline" action="/dashboard/posts/{{ $post->slug }}" method="POST">
                     @method('delete')
                     @csrf
@@ -16,8 +17,12 @@
                         Delete
                     </button>
                 </form>
-                <img src="https://source.unsplash.com/1200x400/?{{ $post->category->name }}"
-                    alt="{{ $post->category->name }}" class="img-fluid mt-3">
+                @if ($post->image != null)
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="image {{ $post->name }}" class="img-fluid mt-3">
+                @else
+                    <img src="https://source.unsplash.com/1200x400/?{{ $post->category->name }}"
+                        alt="{{ $post->category->name }}" class="img-fluid mt-3">
+                @endif
                 <article class="my-3 fs-5">
                     {!! $post->body !!}
                 </article>

@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-start pt-3 pb-2 mb-1 border-bottom">
             <h1 class="h2">Create Post</h1>
         </div>
-        <form method="POST" action="/dashboard/posts" class="mb-4">
+        <form method="POST" action="/dashboard/posts" class="mb-4" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -41,6 +41,16 @@
                     @endforeach
                 </select>
                 @error('category_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Post Image</label>
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image">
+                @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

@@ -31,7 +31,7 @@
                                 <span data-feather="eye">
                                 </span>
                             </a>
-                            <a href="" class="badge bg-warning">
+                            <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning">
                                 <span data-feather="edit">
                                 </span>
                             </a>
