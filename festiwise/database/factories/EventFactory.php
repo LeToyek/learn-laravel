@@ -17,9 +17,9 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->title(),
+            'title' => fake()->sentence(mt_rand(2, 8)),
             'slug' => fake()->slug(),
-            'excerpt' => fake()->text(100),
+            'excerpt' => fake()->sentence(mt_rand(10, 20)),
             'price' => fake()->randomNumber(6,true),
             'event_date' => fake()->date('y-m-d'),
             'user_id' => mt_rand(1,5),

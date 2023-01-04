@@ -1,4 +1,4 @@
-@extends('layouts.partials.navbar')
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
+  @include('layouts.partials.navbar')
   @yield('container')
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
