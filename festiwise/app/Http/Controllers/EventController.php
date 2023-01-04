@@ -15,12 +15,16 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
-    }
-    public function show(){
         return view('events',[
             'title'=> 'events',
             'events' => Event::all(),
+        ]);
+        //
+    }
+    public function show(Event $event){
+        return view('detail',[
+            'title'=> 'event',
+            'event' => $event,
         ]);
     }
 }

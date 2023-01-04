@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark mb-3">
     <div class="container">
         <a class="navbar-brand" href="#">Maulana</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

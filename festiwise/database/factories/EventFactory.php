@@ -23,6 +23,7 @@ class EventFactory extends Factory
             'price' => fake()->randomNumber(6,true),
             'event_date' => fake()->date('y-m-d'),
             'user_id' => mt_rand(1,5),
+            'category_id' => mt_rand(1,3)
         ];
     }
 }

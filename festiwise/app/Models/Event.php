@@ -9,7 +9,15 @@ class Event extends Model
 {
     use HasFactory;
 
-    public function owner(){
-        return $this->belongsTo(User::class,'user_id');
+    protected $guarded = ['id'];
+    protected $with = ['owner', 'category'];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
