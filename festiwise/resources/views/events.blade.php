@@ -7,7 +7,7 @@
             @foreach ($events as $event)
                 <div class="col-md-4 mb-3">
                     <div class="card" >
-                        <img src="https://source.unsplash.com/1200x600/?concert" class="img-fluid" alt="...">
+                        <img src="https://source.unsplash.com/1200x600/?concert" class="img-fluid" alt="yee">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
