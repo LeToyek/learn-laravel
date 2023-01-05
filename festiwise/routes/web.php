@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardEventsController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -29,4 +30,9 @@ Route::get('/login', [LoginController::class,'index']);
 Route::post('/login', [LoginController::class,'login']);
 Route::get('/register', [RegisterController::class,'index']);
 Route::post('/register', [RegisterController::class,'register']);
+Route::get('/dashboard',function(){
+    return view('dashboard.index',['title'=>'Dashboard']);
+});
+Route::resource('/dashboard/events',DashboardEventsController::class);
+  
 

@@ -6,6 +6,6 @@
         <h1>{{ $event->title }}</h1>
         <h3>{{ $event->excerpt }}</h3>
         <h6>{{ $event->price }}</h6>
-        <h4>Will be held on {{ $event->event_date->diffForHumans()  }}</h4>
+        <h4>Will be held on {{ $event->event_date }}</h4>
     </div>
 @endsection
