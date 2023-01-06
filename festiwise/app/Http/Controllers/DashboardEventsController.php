@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -27,7 +28,9 @@ class DashboardEventsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.events.create',['title' => 'Create Event']);
+        return view('dashboard.events.create',[
+            'title' => 'Create Event',
+            'categories' => Category::all()]);
     }
 
     /**
@@ -39,6 +42,23 @@ class DashboardEventsController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|max:255|unique:events',
+            'category_id' => 'required',
+            'excerpt' => 'required',
+            'price' => 'required|numeric',
+            'event_date' => 'required|date_format:Y-m-d',
+            'image' => 'image|file|max:2000'
+        ]);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Event::create($validatedData);
+
+        return redirect('/dashboard/events')->with('success','New event has been added');
     }
 
     /**
