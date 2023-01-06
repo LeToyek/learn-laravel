@@ -26,7 +26,7 @@
             <div class="mb-3">
                 <label for="image" class="form-label">Post Event Banner</label>
                 <img class="img-preview img-fluid mb-3" id="img-preview">
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
             </div>
             <div class="row mb-3">
                 <div class="col">
