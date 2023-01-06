@@ -26,13 +26,13 @@ Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event:slug}',[EventController::class,'show']);
 Route::get('/calendar', [CalendarController::class, 'show']);
 Route::get('/category',[CategoryController::class,'index']);
-Route::get('/login', [LoginController::class,'index']);
+Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'login']);
+Route::post('/logout',[LoginController::class,'logout']);
 Route::get('/register', [RegisterController::class,'index']);
 Route::post('/register', [RegisterController::class,'register']);
 Route::get('/dashboard',function(){
-    return view('dashboard.index',['title'=>'Dashboard']);
-});
+    return view('dashboard.index',['title'=>'Hello '. auth()->user()->name]);
+})->middleware('auth');
 Route::resource('/dashboard/events',DashboardEventsController::class);
-  
 

@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('container')
-    <div class="container col-md-5 col-lg-4 col-sm-8">
+    <div class="container col-md-4 " style="height: 100vh;">
         @if (session()->has('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}

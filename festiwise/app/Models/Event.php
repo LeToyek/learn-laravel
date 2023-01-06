@@ -12,6 +12,8 @@ class Event extends Model
     protected $guarded = ['id'];
     protected $with = ['owner', 'category'];
 
+    
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');
