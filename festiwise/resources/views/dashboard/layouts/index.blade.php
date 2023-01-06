@@ -10,9 +10,11 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
     <script src="https://unpkg.com/feather-icons"></script>
+    <title>{{ $title }}</title>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
         integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
     </script>
+    
 </head>
 
 <body>
@@ -23,7 +25,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">{{ $title }}</h1>
+                    <h1 class="h2" style="text-transform: capitalize">{{ $title }}</h1>
                 </div>
                 @yield('container')
             </main>

@@ -34,5 +34,5 @@ Route::post('/register', [RegisterController::class,'register']);
 Route::get('/dashboard',function(){
     return view('dashboard.index',['title'=>'Hello '. auth()->user()->name]);
 })->middleware('auth');
-Route::resource('/dashboard/events',DashboardEventsController::class);
+Route::resource('/dashboard/events',DashboardEventsController::class)->middleware('auth');
 
