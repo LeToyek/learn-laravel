@@ -49,7 +49,7 @@ class DashboardEventsController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('dashboard.events.show',['title'=>'event','event'=>$event]);
     }
 
     /**

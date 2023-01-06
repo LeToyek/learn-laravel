@@ -19,7 +19,7 @@
                     <td>{{ $event->price }}</td>
                     <td>{{ $event->event_date}}</td>
                     <td>
-                      <a href="#" class="badge bg-info"><span data-feather="eye"></span></a>
+                      <a href="./events/{{ $event->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
                       <a href="#" class="badge bg-warning"><span data-feather="edit"></span></a>
                       <a href="#" class="badge bg-danger"><span data-feather="trash-2"></span></a>
                     </td>
