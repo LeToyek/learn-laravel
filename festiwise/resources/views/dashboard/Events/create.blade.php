@@ -6,14 +6,12 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Example input placeholder">
+                <input type="text" class="form-control" id="title" >
             </div>
             <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Another label</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2"
-                    placeholder="Another input placeholder">
+                <label for="slug" class="form-label">Slug</label>
+                <input type="text" class="form-control" id="slug">
             </div>
-
             <div class="mb-3">
                 <label for="image" class="form-label">Post Event Banner</label>
                 <img class="img-preview img-fluid mb-3" id="img-preview">
@@ -39,8 +37,12 @@
                     </div>
                 </div>
             </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" rows="2" style="resize: none"></textarea>
+            </div>
             <div class="col-12">
-                <button class="btn btn-primary" type="submit">Submit form</button>
+                <button class="btn btn-primary" type="submit">Create</button>
             </div>
         </form>
 
@@ -54,14 +56,15 @@
         const title = document.querySelector('#title');
         const slug = document.querySelector('#slug');
         title.addEventListener('change', function() {
-            fetch('/dashboard/posts/checkSlug?title=' + title.value)
-                .then(response => response.json())
-                .then(data => slug.value = data.slug)
-
+            if (title.value.length != 0) {
+                
+                fetch('/dashboard/events/checkSlug?title=' + title.value)
+                    .then(response => response.json())
+                    .then(data => slug.value = data.slug)
+            }else{
+                slug.value = ""
+            }
         })
-
-
-
         document.addEventListener('trix-file-accept', function(e) {
             e.preventDefault()
         })

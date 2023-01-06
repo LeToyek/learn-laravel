@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Cviebrock\EloquentSluggable\Sluggable;
 class Event extends Model
 {
-    use HasFactory;
+    use HasFactory,Sluggable;
 
     protected $guarded = ['id'];
     protected $with = ['owner', 'category'];
@@ -32,9 +32,5 @@ class Event extends Model
             ]
         ];
     }
-    public function checkSlug(Request $request)
-    {
-        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
-        return response()->json(['slug' => $slug]);
-    }
+    
 }

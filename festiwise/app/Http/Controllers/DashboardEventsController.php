@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
-
+use Cviebrock\EloquentSluggable\Services\SlugService;
 class DashboardEventsController extends Controller
 {
     /**
@@ -88,7 +87,7 @@ class DashboardEventsController extends Controller
     }
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        $slug = SlugService::createSlug(Event::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
 }

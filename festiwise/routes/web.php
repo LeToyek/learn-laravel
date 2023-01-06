@@ -31,6 +31,8 @@ Route::post('/login', [LoginController::class,'login']);
 Route::post('/logout',[LoginController::class,'logout']);
 Route::get('/register', [RegisterController::class,'index']);
 Route::post('/register', [RegisterController::class,'register']);
+Route::get('/dashboard/events/checkSlug',[DashboardEventsController::class,'checkSlug'])
+->middleware('auth');
 Route::get('/dashboard',function(){
     return view('dashboard.index',['title'=>'Hello '. auth()->user()->name]);
 })->middleware('auth');
