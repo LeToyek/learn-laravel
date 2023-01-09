@@ -53,9 +53,6 @@ Route::post('/register',[RegisterController::class,'store']);
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');
-Route::get('/dashboards', function(){
-    return view('dashboard.index');
-})->middleware('auth');
 Route::post('/logout',[LoginController::class,'logout']);
 Route::get('/dashboard/posts/checkSlug',[DashboardPostController::class,'checkSlug'])
 ->middleware('auth');

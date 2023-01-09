@@ -48,7 +48,7 @@ class DashboardPostController extends Controller
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
             'body' => 'required',
-            'image' => 'image|file|max:5000'
+            'image' => 'required|image|file|max:5000'
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('post-images');
@@ -145,6 +145,7 @@ class DashboardPostController extends Controller
 
     public function checkSlug(Request $request)
     {
+        
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
