@@ -9,8 +9,14 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ $title == 'Events' ? 'active' : '' }}" href="/dashboard/events">
-                    <span data-feather="file" class="align-text-bottom"></span>
+                    <span data-feather="file-text" class="align-text-bottom"></span>
                     Events
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ $title == 'Tickets' ? 'active' : '' }}" href="/dashboard/tickets">
+                    <span data-feather="credit-card" class="align-text-bottom"></span>
+                    Tickets
                 </a>
             </li>
         </ul>

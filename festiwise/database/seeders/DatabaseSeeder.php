@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(5)->create();
         \App\Models\Event::factory(20)->create();
+        \App\Models\Ticket::factory(40)->create();
 
         Category::create([
             'name' => 'Concert',
@@ -36,5 +37,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
     }
 }

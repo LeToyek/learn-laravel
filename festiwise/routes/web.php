@@ -3,6 +3,7 @@
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardEventsController;
+use App\Http\Controllers\DashboardTicketController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -32,6 +33,8 @@ Route::post('/logout',[LoginController::class,'logout']);
 Route::get('/register', [RegisterController::class,'index']);
 Route::post('/register', [RegisterController::class,'register']);
 Route::get('/dashboard/events/checkSlug',[DashboardEventsController::class,'checkSlug'])
+->middleware('auth');
+Route::get('/dashboard/tickets',[DashboardTicketController::class,'show'])
 ->middleware('auth');
 Route::get('/dashboard',function(){
     return view('dashboard.index',['title'=>'Hello '. auth()->user()->name]);
