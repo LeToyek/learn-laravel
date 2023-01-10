@@ -1,6 +1,6 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark mb-3">
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark position-absoulte">
     <div class="container">
-        <a class="navbar-brand" href="#">Maulana</a>
+        <a class="navbar-brand" href="#">Festiwise</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,28 +31,29 @@
                             Welcome back, {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i> My Dashboard</a></li>
+                            <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i>
+                                    My Dashboard</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
                                 <form action="/logout" method="POST">
                                     @csrf
-                                    <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i> Logout</button>
+                                    <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i>
+                                        Logout</button>
                                 </form>
+                            </li>
+                        </ul>
                     </li>
-                </ul>
-                </li>
-            @else
-                <li class="nav-item">
-                    <a class="nav-link {{ $title == 'Login' ? 'active' : '' }}" href="/login"><i
-                            class="bi bi-box-arrow-in-right"></i> Login</a>
-                </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary {{ $title == 'Login' ? 'active' : '' }}" href="/login"><i
+                                class="bi bi-box-arrow-in-right"></i>Login</a>
+                    </li>
 
-            @endauth
+                @endauth
             </ul>
 
         </div>
     </div>
 </nav>
-

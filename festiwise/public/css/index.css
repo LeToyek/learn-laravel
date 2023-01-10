@@ -48,7 +48,18 @@ button {
   outline: none;
 }
 
-button:hover {
+.btn-r:hover {
+  background-color: var(--primary-purple);
+  box-shadow: 0px 15px 20px #9c23c473;
+  color: #fff;
+  transform: translateY(-7px);
+}
+.btn-l{
+  background-color: transparent;
+  border: 1px solid var(--primary-purple);
+  box-shadow: 0px 15px 20px #9c23c473;
+}
+.btn-l:hover {
   background-color: var(--primary-purple);
   box-shadow: 0px 15px 20px #9c23c473;
   color: #fff;

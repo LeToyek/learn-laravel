@@ -17,7 +17,7 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating my-3">
                         <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                             id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}">
                         <label for="floatingInput">Email address</label>
@@ -27,7 +27,7 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating ">
                         <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                             id="floatingPassword" placeholder="Password" value="{{ old('password') }}">
                         <label for="floatingPassword">Password</label>
@@ -37,7 +37,7 @@
                             </div>
                         @enderror
                     </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+                    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
                 </form>
                 <small class="d-block text-center mt-3">Already Have account? <a href="/login">Login Here!</a></small>
             </main>

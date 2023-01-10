@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('container')
-    <div class="container col-md-4 " style="height: 100vh;">
+    <div class="container col-md-4 my-auto">
         @if (session()->has('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
@@ -12,7 +12,7 @@
                 {{ session('login_error') }}
             </div>
         @endif
-        <form action="/login" method="POST">
+        <form action="/login" class="my-auto" method="POST">
             @csrf
             <h1 class="h3 mb-3 fw-normal">Please Log in</h1>
             <div class="form-floating ">

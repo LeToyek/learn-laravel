@@ -13,8 +13,9 @@
                         Bootstrap
                         framework! Just download a theme and start customizing, no strings attached!</p>
                     <div class="row justify-content-center">
-                        <button class="col-3">Get Started</button>
-                        <button class="col-3">Find Events</button>
+                        <button class="btn-l col-4">Get Started</button>
+                        <div class="col"></div>
+                        <button class="btn-r col-4">Find Events</button>
                     </div>
                 </div>
             </div>
