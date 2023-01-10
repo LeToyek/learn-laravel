@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('index', ['title' => 'home']);
 });
 Route::get('/events', [EventController::class, 'index']);
-Route::get('/events/{event:slug}',[EventController::class,'show'])->name('event');
+Route::get('/events/{event:slug}',[EventController::class,'show'])->name('event')->middleware('auth');
 Route::post('/events',[EventController::class,'buyTicket']);
 Route::get('/calendar', [CalendarController::class, 'show']);
 Route::get('/category',[CategoryController::class,'index']);

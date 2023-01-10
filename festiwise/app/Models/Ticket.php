@@ -9,6 +9,7 @@ class Ticket extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected $with = ['event'];
 
     public function event(){
