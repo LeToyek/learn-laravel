@@ -17,13 +17,15 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->sentence(mt_rand(2, 8)),
+            'title' => fake()->sentence(mt_rand(2, 4)),
             'slug' => fake()->slug(),
             'excerpt' => fake()->sentence(mt_rand(10, 20)),
-            'price' => fake()->randomNumber(6,true),
+            'price' => mt_rand(10,15)*10000,
             'event_date' => fake()->date('y-m-d'),
             'user_id' => mt_rand(1,5),
-            'category_id' => mt_rand(1,3)
+            'category_id' => mt_rand(1,3),
+            'stock' => mt_rand(1,90),
+            'location' => 'berezan, Ukraine'
         ];
     }
 }

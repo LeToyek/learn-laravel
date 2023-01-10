@@ -17,7 +17,7 @@ class EventController extends Controller
     {
         return view('events',[
             'title'=> 'events',
-            'events' => Event::all(),
+            'events' => Event::paginate(6),
         ]);
         //
     }
