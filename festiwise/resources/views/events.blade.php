@@ -15,11 +15,11 @@
                                 <h6 class="card-stock bg-success">Stock: {{ $event->stock }}</h6>
                             </div>
                             <h6 class="card-text"><span data-feather="map-pin"
-                                    style="height: 16px"></span>{{ $event->location }}</h6>
+                                    style="width: 16px"></span> {{ $event->location }}</h6>
                             <h6 class="card-text"><span data-feather="dollar-sign"
-                                    style="height: 16px"></span>{{ $event->price }}</h6>
+                                    style="width: 16px"></span> {{ $event->price }}</h6>
                             <h6 class="card-text"><span data-feather="clock"
-                                    style="height: 16px"></span>{{ $event->event_date }}</h6>
+                                    style="width: 16px"></span> {{ $event->event_date }}</h6>
                             <p class="card-text">{{ $event->excerpt }}</p>
                             <a href="/events/{{ $event->slug }}" class="btn btn-primary">Get Ticket</a>
                         </div>
