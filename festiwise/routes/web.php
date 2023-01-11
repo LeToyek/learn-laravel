@@ -38,7 +38,7 @@ Route::get('/dashboard/events/checkSlug',[DashboardEventsController::class,'chec
 Route::get('/dashboard/tickets',[DashboardTicketController::class,'show'])
 ->middleware('auth');
 Route::get('/dashboard',function(){
-    return view('dashboard.index',['title'=>'Hello '. auth()->user()->name]);
+    return view('dashboard.index',['title'=>'Dashboard', 'greet'=>'Hello '. auth()->user()->name]);
 })->middleware('auth');
 Route::resource('/dashboard/events',DashboardEventsController::class)->middleware('auth');
 

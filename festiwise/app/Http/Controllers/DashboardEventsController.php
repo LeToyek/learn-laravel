@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardEventsController extends Controller
@@ -30,9 +31,10 @@ class DashboardEventsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.events.create',[
+        return view('dashboard.events.create', [
             'title' => 'Create Event',
-            'categories' => Category::all()]);
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -62,7 +64,7 @@ class DashboardEventsController extends Controller
 
         Event::create($validatedData);
         Alert::success('Create Success', 'Your event is created');
-        return redirect('/dashboard/events')->with('success','New event has been added');
+        return redirect('/dashboard/events')->with('success', 'New event has been added');
     }
 
     /**
@@ -73,8 +75,7 @@ class DashboardEventsController extends Controller
      */
     public function show(Event $event)
     {
-        $event['event_date'] = $event['event_date']->diffForHumans();
-        return view('dashboard.events.show',['title'=>'event','event'=>$event]);
+        return view('dashboard.events.show', ['title' => 'event', 'event' => $event]);
     }
 
     /**
@@ -85,7 +86,11 @@ class DashboardEventsController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('dashboard.events.edit', [
+            'title' => 'Edit',
+            'event' => $event,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -97,7 +102,27 @@ class DashboardEventsController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|max:255|unique:events',
+            'category_id' => 'required',
+            'excerpt' => 'required',
+            'price' => 'required|numeric',
+            'event_date' => 'required|date_format:Y-m-d',
+            'image' => 'image|file|max:2000',
+            'stock' => 'required',
+            'location' => 'required',
+        ]);
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+        $validatedData['user_id'] = auth()->user()->id;
+        Event::where('id', $event->id)->update($validatedData);
+        Alert::success('Create Success', 'Your event is created');
+        return redirect('/dashboard/events')->with('success', 'An event has been edited');
     }
 
     /**
@@ -109,6 +134,11 @@ class DashboardEventsController extends Controller
     public function destroy(Event $event)
     {
         //
+        if ($event->image) {
+            Storage::delete($event->image);
+        }
+        Event::destroy($event->id);
+        return redirect('/dashboard/events')->with('success', 'Event has been deleted!');
     }
     public function checkSlug(Request $request)
     {
