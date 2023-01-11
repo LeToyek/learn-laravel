@@ -2,11 +2,18 @@
 
 @section('container')
     <div class="container">
-        <h1>Search</h1>
-        <form action="" class="mb-3">
-            @csrf
-            <input type="text" class="form-control bg-dark" placeholder="Search your events">
-        </form>
+        <div class="row justify-content-center">
+            
+            <form action="" class="col-6 mb-3">
+                @csrf
+                <div class="input-group">
+                    <input type="text" class="form-control bg-dark" placeholder="Search your events">
+                    <button class="input-group-text" id="basic-addon2" type="submit">
+                        <span data-feather="search"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
         <div class="row">
             @foreach ($events as $event)
                 <div class="col-md-4 mb-3">

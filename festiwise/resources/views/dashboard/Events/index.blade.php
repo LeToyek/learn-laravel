@@ -36,8 +36,16 @@
                     <td>{{ $event->event_date }}</td>
                     <td>
                         <a href="./events/{{ $event->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
-                        <a href="#" class="badge bg-warning"><span data-feather="edit"></span></a>
-                        <a href="#" class="badge bg-danger"><span data-feather="trash-2"></span></a>
+                        <a href="../events/{{ $event->slug }}/edit" class="badge bg-warning"><span
+                                data-feather="edit"></span></a>
+                        <form class="d-inline" action="/dashboard/events/{{ $event->slug }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">
+                                <span data-feather="x-circle">
+                                </span>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
