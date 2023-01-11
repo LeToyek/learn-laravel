@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             
-            <form action="" class="col-6 mb-3">
+            <form action="" class="col-md-6 mb-3">
                 @csrf
                 <div class="input-group">
                     <input type="text" class="form-control bg-dark" placeholder="Search your events">

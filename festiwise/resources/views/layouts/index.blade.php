@@ -16,6 +16,7 @@
     @include('sweetalert::alert')
     @include('layouts.partials.navbar')
     @yield('container')
+    @include('layouts.partials.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>

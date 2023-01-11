@@ -1,4 +1,15 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-transparent position-absoulte" style="background-color: transparent">
+<nav class="navbar navbar-dark navbar-expand-lg main-nav">
+    @if ($title == 'home')
+        <style>
+            @media (min-width: 1200px) {
+                .main-nav {
+                    background-color: transparent;
+                    width: 100vw;
+                    position: absolute;
+                }
+            }
+        </style>
+    @endif
     <div class="container">
         <a class="navbar-brand" href="../"><span class="title nav-title">Festiwise</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -27,8 +38,7 @@
                 @auth
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Welcome back, {{ auth()->user()->name }}
+                            aria-expanded="false">{{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i>
@@ -47,8 +57,10 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary px-5 {{ $title == 'Login' ? 'active' : '' }}" href="/login"><i
-                                class="bi bi-box-arrow-in-right"></i>Login</a>
+                        <a class="nav-link btn btn-primary px-5 {{ $title == 'Login' ? 'active' : '' }}" href="/login"
+                            style="border-radius: 32px">
+                            <span data-feather="log-in" style="width: 16px"></span>
+                            Login</a>
                     </li>
 
                 @endauth

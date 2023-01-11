@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -33,6 +34,10 @@ class EventController extends Controller
             'event_id' => 'required'
         ]);
         $validatedData['user_id'] = auth()->user()->id;
+        if (User::where('id', '=' , $validatedData['user_id'])) {
+            Alert::error('Payment failed',"You've already bought this ticket!");
+            return redirect('events');
+        }
         Ticket::create($validatedData);
         
         Alert::success('Payment Success', 'Your payment is already proceed, check your email to get your ticket');

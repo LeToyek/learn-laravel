@@ -10,9 +10,9 @@
                 <div class="col-lg-8 align-self-baseline">
                     <p class="mb-5" style="color: darkgrey">Festiwise can help you make your event management easier! Just register and start manage event as much as you want!</p>
                     <div class="row justify-content-center">
-                        <button class="btn-l col-4">Get Started</button>
-                        <div class="col"></div>
-                        <button class="btn-r col-4">Find Events</button>
+                        <button class="btn-l col-md-4">Get Started</button>
+                        <div class="col-md-2 my-3"></div>
+                        <button class="btn-r col-md-4">Find Events</button>
                     </div>
                 </div>
             </div>
