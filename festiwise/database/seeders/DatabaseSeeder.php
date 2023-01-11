@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\Event::factory(20)->create();
         \App\Models\Ticket::factory(40)->create();
 
+        User::create([
+            'name' => "Maulana Arif",
+            'email' => "maulana@gmail.com",
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+        ]);
         Category::create([
             'name' => 'Concert',
             'slug' => 'concert'

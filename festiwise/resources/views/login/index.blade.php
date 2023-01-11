@@ -16,7 +16,7 @@
             @csrf
             <h1 class="h3 mb-3 fw-normal">Please Log in</h1>
             <div class="form-floating ">
-              <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+              <input type="email" class="bg-dark form-control @error('email') is-invalid @enderror" name="email"
               id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}">
                 <label for="email">Email address</label>
                 @error('email')
@@ -27,7 +27,7 @@
             </div>
             <div class="form-floating my-3">
                 <input required type="password" name="password" value="{{ old('password') }}"
-                    class="form-control  @error('password') is-invalid @enderror" id="password" placeholder="Password">
+                    class="bg-dark form-control  @error('password') is-invalid @enderror" id="password" placeholder="Password">
                 <label for="password">Password</label>
                 @error('password')
                     <div class="invalid-feedback">

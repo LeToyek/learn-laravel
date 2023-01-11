@@ -8,7 +8,7 @@
                     @csrf
                     <h1 class="h3 mb-3 fw-normal text-center">Registration form</h1>
                     <div class="form-floating">
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                        <input type="text" class="bg-dark form-control @error('name') is-invalid @enderror" name="name"
                             id="floatingInput" placeholder="name" value="{{ old('name') }}">
                         <label for="floatingInput">Name</label>
                         @error('name')
@@ -18,7 +18,7 @@
                         @enderror
                     </div>
                     <div class="form-floating my-3">
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                        <input type="email" class="bg-dark form-control @error('email') is-invalid @enderror" name="email"
                             id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}">
                         <label for="floatingInput">Email address</label>
                         @error('email')
@@ -28,7 +28,7 @@
                         @enderror
                     </div>
                     <div class="form-floating ">
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
+                        <input type="password" class="bg-dark form-control @error('password') is-invalid @enderror" name="password"
                             id="floatingPassword" placeholder="Password" value="{{ old('password') }}">
                         <label for="floatingPassword">Password</label>
                         @error('password')

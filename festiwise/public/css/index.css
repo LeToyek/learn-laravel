@@ -32,7 +32,7 @@ header.masthead h1, header.masthead .h1 {
     font-size: 3.5rem;
   }
 }
-button {
+.btn-l,.btn-r {
   padding: 1.3em 3em;
   font-size: 12px;
   font-weight: bold;
@@ -88,5 +88,4 @@ button:active {
   border-radius: 12px;
   font-weight: 600;
   font-size: 14px;
-
 }

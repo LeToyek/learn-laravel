@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use RealRashid\SweetAlert\Facades\Alert;
+
 class DashboardEventsController extends Controller
 {
     /**
@@ -49,7 +51,9 @@ class DashboardEventsController extends Controller
             'excerpt' => 'required',
             'price' => 'required|numeric',
             'event_date' => 'required|date_format:Y-m-d',
-            'image' => 'image|file|max:2000'
+            'image' => 'image|file|max:2000',
+            'stock' => 'required',
+            'location' => 'required',
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('post-images');
@@ -57,7 +61,7 @@ class DashboardEventsController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
 
         Event::create($validatedData);
-
+        Alert::success('Create Success', 'Your event is created');
         return redirect('/dashboard/events')->with('success','New event has been added');
     }
 
@@ -69,6 +73,7 @@ class DashboardEventsController extends Controller
      */
     public function show(Event $event)
     {
+        $event['event_date'] = $event['event_date']->diffForHumans();
         return view('dashboard.events.show',['title'=>'event','event'=>$event]);
     }
 

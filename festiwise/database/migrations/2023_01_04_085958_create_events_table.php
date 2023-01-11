@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('excerpt');
             $table->integer('price');
-            $table->integer('stock');
-            $table->string('location');
+            $table->integer('stock')->default(0);
+            $table->string('location')->default('unknown');
             $table->timestamp('event_date');
             $table->timestamps();
         });

@@ -3,8 +3,13 @@
 @section('container')
     <div class="container">
         <div class="card" style="">
-            <img class="img-fluid card-img-top" src="https://source.unsplash.com/1200x600/?{{ $event->category->name }}"
-                class="img-fluid" alt="yee">
+            @if ($event->image)
+                <img class="img-fluid card-img-top" src="{{ asset('storage/' . $event->image) }}" class="img-fluid"
+                    alt="yee">
+            @else
+                <img class="img-fluid card-img-top" src="https://source.unsplash.com/1200x600/?{{ $event->category->name }}"
+                    class="img-fluid" alt="yee">
+            @endif
             <div class="card-body">
                 <div class="d-flex" style="align-items: center">
                     <h5 class="card-title" style="flex: 11">{{ $event->title }}</h5>

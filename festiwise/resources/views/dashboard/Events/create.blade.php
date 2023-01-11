@@ -27,7 +27,8 @@
             <div class="mb-3">
                 <label for="image" class="form-label">Post Event Banner</label>
                 <img class="img-preview img-fluid mb-3" id="img-preview">
-                <input  class="form-control  @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+                <input class="form-control  @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
                 @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -81,6 +82,16 @@
                             {{ $message }}
                         </div>
                     @enderror
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control @error('location') is-invalid @enderror" name="location">
+                </div>
+                <div class="col">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" class="form-control @error('stock') is-invalid @enderror" name="stock">
                 </div>
             </div>
             <div class="mb-3">

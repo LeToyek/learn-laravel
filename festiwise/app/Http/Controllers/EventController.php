@@ -34,6 +34,7 @@ class EventController extends Controller
         ]);
         $validatedData['user_id'] = auth()->user()->id;
         Ticket::create($validatedData);
+        
         Alert::success('Payment Success', 'Your payment is already proceed, check your email to get your ticket');
         return redirect('events');
     }

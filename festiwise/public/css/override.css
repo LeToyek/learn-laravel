@@ -1,11 +1,11 @@
 :root{
-  --primary-purple: #7f00ff;
-  --purple-600: #6700CC;
-  --purple-700: #4C0099;
-  --purple-800: #330066;
+  --primary-purple: #707AFF;
+  --purple-600: #3341FF;
+  --purple-700: #000ECC;
+  --purple-800: #000A99;
 
 }
-.btn:active {
+.btn:focus {
     background-color: var(--purple-600);
     border-color: var(--purple-700);
 }
@@ -103,12 +103,16 @@
 }
 .page-link:hover {
     z-index: 2;
-    color: var(--purple-800);
+    color: white;
 }
+.page-link:active{
+    background-color: transparent;
+}
+
 .page-link:focus {
     z-index: 3;
-    color: var(--purple-800);
-    background-color: #e9ecef;
+    color: white;
+    background-color: transparent;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(114, 58, 244, 0.5);
 }
