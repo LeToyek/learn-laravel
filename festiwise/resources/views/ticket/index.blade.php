@@ -152,15 +152,15 @@
 <div class="ticket">
     <div class="holes-top"></div>
     <div class="title">
-        <p class="cinema">{{ $event->category->name }}</p>
-        <p class="movie-title">{{ $event->title }}</p>
+        <p class="cinema">{{ $ticket->event->category->name }}</p>
+        <p class="movie-title">{{ $ticket->event->title }}</p>
     </div>
     <div class="poster">
-        @if ($event->image)
-            <img class="img-fluid card-img-top" src="{{ asset('storage/' . $event->image) }}" class="img-fluid"
+        @if ($ticket->event->image)
+            <img class="img-fluid card-img-top" src="{{ asset('storage/' . $ticket->event->image) }}" class="img-fluid"
                 alt="yee">
         @else
-            <img class="img-fluid card-img-top" src="https://source.unsplash.com/1200x600/?{{ $event->category->name }}"
+            <img class="img-fluid card-img-top" src="https://source.unsplash.com/1200x600/?{{ $ticket->event->category->name }}"
                 class="img-fluid" alt="yee">
         @endif
     </div>
@@ -171,8 +171,8 @@
                 <th colspan="1">Price</th>
             </tr>
             <tr>
-                <td colspan="2">{{ $event->location }}</td>
-                <td>{{ $event->price }}</td>
+                <td colspan="2">{{ $ticket->event->location }}</td>
+                <td>{{ $ticket->event->price }}</td>
             </tr>
         </table>
         <table>
@@ -182,9 +182,9 @@
                 <th>End</th>
             </tr>
             <tr>
-                <td>{{ $event->event_date }}</td>
-                <td>{{ $event->start }}</td>
-                <td>{{ $event->end }}</td>
+                <td>{{ $ticket->event-$ticket->event_date }}</td>
+                <td>{{ $ticket->event->start }}</td>
+                <td>{{ $ticket->event->end }}</td>
             </tr>
         </table>
     </div>
@@ -195,36 +195,17 @@
             </tr>
         </table>
         <table class="numbers">
+            <input type="hidden" id="hidden_id" value="{{ echo decbin($ticket->id) }}" >
             <tr>
-                <td>9</td>
-                <td>1</td>
-                <td>7</td>
-                <td>3</td>
-                <td>7</td>
-                <td>5</td>
-                <td>4</td>
-                <td>4</td>
-                <td>4</td>
-                <td>5</td>
-                <td>4</td>
-                <td>1</td>
-                <td>4</td>
-                <td>7</td>
-                <td>8</td>
-                <td>7</td>
-                <td>3</td>
-                <td>4</td>
-                <td>1</td>
-                <td>4</td>
-                <td>5</td>
-                <td>2</td>
+                {{ for ($i=0; $i <15 ; $i++) { 
+                    echo '<td>'.$ticket->id[$i] ' </td>'
+                } }}
             </tr>
         </table>
     </div>
 </div>
 <script>
-    var code =
-        '11010010000100111011001011101111011010001110101110011001101110010010111101110111001011001001000011011000111010110001001110111101101001011010111000101101'
+    var code = document.getElementById('hidden_id').value
     table = document.querySelector('.myRow')
     for (var i = 0; i < code.length; i++) {
         const para = document.createElement("td");

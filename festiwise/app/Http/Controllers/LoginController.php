@@ -23,6 +23,7 @@ class LoginController extends Controller
         }
         return back()->with('login_error','Login Failed');
     }
+
     public function logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();
