@@ -57,6 +57,8 @@ class DashboardEventsController extends Controller
             'image' => 'image|file|max:2000',
             'stock' => 'required',
             'location' => 'required',
+            'start' => 'required',
+            'end' => 'required',
         ]);
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('post-images');
@@ -115,6 +117,8 @@ class DashboardEventsController extends Controller
             'image' => 'image|file|max:2000',
             'stock' => 'required',
             'location' => 'required',
+            'start' => 'required',
+            'end' => 'required',
         ]);
         if ($request->file('image')) {
             if ($request->oldImage) {
@@ -122,7 +126,10 @@ class DashboardEventsController extends Controller
             }
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
+
         $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['start'] = $validatedData['start']->format('g:i:a');
+        $validatedData['end'] = $validatedData['end']->format('g:i:a');
         Event::where('id', $event->id)->update($validatedData);
         Alert::success('Create Success', 'Your event is created');
         return redirect('/dashboard/events')->with('success', 'An event has been edited');

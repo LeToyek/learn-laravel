@@ -35,8 +35,10 @@
                                     {{ $event->location }}</h6>
                                 <h6 class="card-text"><span data-feather="dollar-sign" style="width: 16px"></span>
                                     {{ $event->price }}</h6>
-                                <h6 class="card-text"><span data-feather="clock" style="width: 16px"></span>
+                                <h6 class="card-text"><span data-feather="calendar" style="width: 16px"></span>
                                     {{ $event->event_date }}</h6>
+                                <h6 class="card-text"><span data-feather="clock" style="width: 16px"></span>
+                                    {{ $event->start }} - {{ $event->end }}</h6>
                                 <p class="card-text">{{ $event->excerpt }}</p>
                                 <a href="/events/{{ $event->slug }}" class="btn btn-primary">Get Ticket</a>
                             </div>

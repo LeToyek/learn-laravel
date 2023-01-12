@@ -16,7 +16,7 @@
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" id="slug"
+                <input type="text" name="slug" readonly class="form-control @error('slug') is-invalid @enderror" id="slug"
                     value="{{ old('slug') }}">
                 @error('slug')
                     <div class="invalid-feedback">
@@ -67,14 +67,17 @@
                     @enderror
 
                 </div>
+
+            </div>
+            <div class="mb-3 row">
                 <div class="col">
                     <label for="date" class="form-label">Will be held on</label>
                     <div class="input-group date">
                         <input type="date" name="event_date" value="{{ old('event_date') }}"
                             class="form-control @error('event_date') is-invalid @enderror" id="datepicker" />
-                        <span class="input-group-text" id="basic-addon1">
+                        {{-- <span class="input-group-text" id="basic-addon1">
                             <span data-feather="calendar" />
-                        </span>
+                        </span> --}}
 
                     </div>
                     @error('event_date')
@@ -83,13 +86,45 @@
                         </div>
                     @enderror
                 </div>
+                <div class="col">
+                    <label for="date" class="form-label">Start</label>
+                    <div class="input-group date">
+                        <input type="time" name="start" value="{{ old('start') }}"
+                            class="form-control @error('start') is-invalid @enderror" id="datepicker" />
+                        {{-- <span class="input-group-text" id="basic-addon1">
+                            <span data-feather="calendar" />
+                        </span> --}}
+
+                    </div>
+                    @error('start')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="col">
+                    <label for="date" class="form-label">End</label>
+                    <div class="input-group date">
+                        <input type="time" name="end" value="{{ old('end') }}"
+                            class="form-control @error('end') is-invalid @enderror" id="datepicker" />
+                        {{-- <span class="input-group-text" id="basic-addon1">
+                            <span data-feather="calendar" />
+                        </span> --}}
+
+                    </div>
+                    @error('end')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
             </div>
             <div class="mb-3 row">
-                <div class="col">
+                <div class="col-8">
                     <label for="location" class="form-label">Location</label>
                     <input type="text" class="form-control @error('location') is-invalid @enderror" name="location">
                 </div>
-                <div class="col">
+                <div class="col-4">
                     <label for="stock" class="form-label">Stock</label>
                     <input type="number" class="form-control @error('stock') is-invalid @enderror" name="stock">
                 </div>
@@ -111,12 +146,6 @@
 
     </div>
     <script>
-        // const datePicker = document.querySelector('#datepicker')
-        // console.log(datePicker)
-        // flatpickr('#datepicker', {
-        //     minDate: "today",
-        //     enableTime: true
-        // })
         const title = document.querySelector('#title');
         const slug = document.querySelector('#slug');
         title.addEventListener('change', function() {

@@ -24,7 +24,9 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('stock')->default(0);
             $table->string('location')->default('unknown');
-            $table->timestamp('event_date');
+            $table->date('event_date');
+            $table->string('start')->default('00:00:00');
+            $table->string('end')->nullable();
             $table->timestamps();
         });
     }

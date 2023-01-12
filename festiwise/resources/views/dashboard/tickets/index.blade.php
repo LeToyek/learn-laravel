@@ -2,7 +2,6 @@
 
 @section('container')
     @foreach ($tickets as $ticket)
-        <h1>{{ $ticket->event->title }}</h1>
-
+        @include('ticket.index', ['event' => $ticket->event])
     @endforeach
 @endsection
