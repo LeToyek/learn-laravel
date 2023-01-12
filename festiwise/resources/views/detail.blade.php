@@ -19,7 +19,7 @@
                 <h6 class="card-text"><span data-feather="dollar-sign" style="width: 16px"></span> {{ $event->price }}</h6>
                 <h6 class="card-text"><span data-feather="clock" style="width: 16px"></span> {{ $event->event_date }}</h6>
                 <p class="card-text">{{ $event->excerpt }}</p>
-                <form action="./" method="POST">
+                <form action="./{{ $event->slug }}" method="POST">
                     @csrf
                     <input type="hidden" value="{{ $event->id }}" name="event_id">
                     <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure?')">Get Ticket</a>

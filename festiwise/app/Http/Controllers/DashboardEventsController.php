@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
@@ -75,6 +76,8 @@ class DashboardEventsController extends Controller
      */
     public function show(Event $event)
     {
+        $soldTicket = Ticket::where('event_id',$event->id)->count();
+        $event['max_ticket'] = $event->stock + $soldTicket;
         return view('dashboard.events.show', ['title' => 'event', 'event' => $event]);
     }
 

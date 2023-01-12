@@ -51,11 +51,7 @@ header.masthead .h1 {
     header.masthead .h1 {
         font-size: 3.5rem;
     }
-    .main-nav {
-      background-color: transparent;
-      width: 100vw;
-      position: absolute;
-  }
+    
 }
 .btn-l,
 .btn-r {
@@ -110,7 +106,7 @@ button:active {
     background-color: #3f3f3f;
 }
 .card-stock {
-    flex: 3;
+    width: fit-content;
     display: flex;
     justify-content: center;
     padding: 4px 8px;

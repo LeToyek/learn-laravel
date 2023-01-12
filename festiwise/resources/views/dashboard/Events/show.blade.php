@@ -10,9 +10,13 @@
                     <div class="card-body">
                         <div class="d-flex" style="align-items: center">
                             <h5 class="card-title" style="flex: 11">{{ $event->title }}</h5>
-
                         </div>
-                        <h6 class="card-stock">Stock: {{ $event->stock }}</h6>
+
+                        <h6 class="card-stock col">Stock: {{ $event->stock }}</h6>
+                        <div class="progress col">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                style="width: {{ ($event->stock / $event->max_ticket) * 100 }}%"></div>
+                        </div>
                         <h6 class="card-text"><span data-feather="map-pin" style="width: 16px"></span>
                             {{ $event->location }}</h6>
                         <h6 class="card-text"><span data-feather="dollar-sign" style="width: 16px"></span>
