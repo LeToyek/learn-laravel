@@ -11,7 +11,7 @@
                         <div class="d-flex" style="align-items: center">
                             <h5 class="card-title" style="flex: 11">{{ $event->title }}</h5>
                         </div>
-
+                        
                         <h6 class="card-stock col">Stock: {{ $event->stock }}</h6>
                         <div class="progress col">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
