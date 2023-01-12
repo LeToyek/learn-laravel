@@ -25,7 +25,9 @@ class EventFactory extends Factory
             'user_id' => mt_rand(1,5),
             'category_id' => mt_rand(1,3),
             'stock' => mt_rand(1,90),
-            'location' => 'berezan, Ukraine'
+            'location' => 'berezan, Ukraine',
+            'start' => fake()->time('g:i a'),
+            'end' => fake()->time('g:i a'),
         ];
     }
 }

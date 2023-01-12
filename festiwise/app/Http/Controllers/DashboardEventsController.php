@@ -128,8 +128,6 @@ class DashboardEventsController extends Controller
         }
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['start'] = $validatedData['start']->format('g:i:a');
-        $validatedData['end'] = $validatedData['end']->format('g:i:a');
         Event::where('id', $event->id)->update($validatedData);
         Alert::success('Create Success', 'Your event is created');
         return redirect('/dashboard/events')->with('success', 'An event has been edited');

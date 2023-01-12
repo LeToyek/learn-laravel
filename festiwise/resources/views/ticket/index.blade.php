@@ -1,6 +1,5 @@
 <style>
     body {
-        background-color: #d6d6d6;
         font-weight: 600;
     }
 
@@ -11,7 +10,6 @@
 
     .ticket {
         width: 400px;
-        height: 775px;
         background-color: white;
         margin: 25px auto;
         position: relative;
@@ -20,7 +18,7 @@
     .holes-top {
         height: 50px;
         width: 50px;
-        background-color: #d6d6d6;
+        background-color: #212529;
         border-radius: 50%;
         position: absolute;
         left: 50%;
@@ -33,7 +31,7 @@
         content: '';
         height: 50px;
         width: 50px;
-        background-color: #d6d6d6;
+        background-color: #212529;
         position: absolute;
         border-radius: 50%;
     }
@@ -57,7 +55,7 @@
         content: '';
         height: 50px;
         width: 50px;
-        background-color: #d6d6d6;
+        background-color: #212529;
         position: absolute;
         border-radius: 50%;
     }
@@ -74,15 +72,18 @@
 
     .title {
         padding: 50px 25px 10px;
+        color: #181818
     }
 
     .cinema {
         color: #aaa;
         font-size: 22px;
+        margin-bottom: 0;
     }
 
     .movie-title {
-        font-size: 50px;
+        font-size: 40px;
+        margin-bottom: 0;
     }
 
     .info {
@@ -117,7 +118,12 @@
 
     table td {
         width: 33%;
-        font-size: 16px;
+        font-size: 20px;
+        color: #313131
+    }
+
+    th {
+        color: #313131
     }
 
     .bigger {
@@ -150,9 +156,25 @@
         <p class="movie-title">{{ $event->title }}</p>
     </div>
     <div class="poster">
-        <img src="{{ asset('storage/' . $event->image) }}" alt="Movie: Only God Forgives" />
+        @if ($event->image)
+            <img class="img-fluid card-img-top" src="{{ asset('storage/' . $event->image) }}" class="img-fluid"
+                alt="yee">
+        @else
+            <img class="img-fluid card-img-top" src="https://source.unsplash.com/1200x600/?{{ $event->category->name }}"
+                class="img-fluid" alt="yee">
+        @endif
     </div>
     <div class="info">
+        <table>
+            <tr>
+                <th colspan="2">Location</th>
+                <th colspan="1">Price</th>
+            </tr>
+            <tr>
+                <td colspan="2">{{ $event->location }}</td>
+                <td>{{ $event->price }}</td>
+            </tr>
+        </table>
         <table>
             <tr>
                 <th>Date</th>
@@ -169,7 +191,8 @@
     <div class="holes-lower"></div>
     <div class="serial">
         <table class="barcode">
-            <tr class="awik"></tr>
+            <tr class="myRow">
+            </tr>
         </table>
         <table class="numbers">
             <tr>
@@ -202,12 +225,16 @@
 <script>
     var code =
         '11010010000100111011001011101111011010001110101110011001101110010010111101110111001011001001000011011000111010110001001110111101101001011010111000101101'
-    table = document.querySelector('.awik')
+    table = document.querySelector('.myRow')
     for (var i = 0; i < code.length; i++) {
+        const para = document.createElement("td");
+        const att = document.createAttribute("bgColor")
         if (code[i] == 1) {
-            table.append('<td bgcolor="black">')
+            att.value = "black"
         } else {
-            table.append('<td bgcolor="white">')
+            att.value = "white"
         }
+        para.setAttributeNode(att)
+        table.append(para)
     }
 </script>

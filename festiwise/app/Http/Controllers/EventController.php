@@ -46,9 +46,9 @@ class EventController extends Controller
             return redirect('events');
         }
         Event::where( 'id',$event->id)->update(['stock' => $event->stock-1]);
-        Ticket::create($validatedData);
+        $ticket = Ticket::create($validatedData);
         
         Alert::success('Payment Success', 'Your payment is already proceed, check your email to get your ticket');
-        return redirect('events');
+        return redirect('ticket/' . $ticket->id);
     }
 }

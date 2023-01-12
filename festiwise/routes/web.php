@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardTicketController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/', function () {
     return view('index', ['title' => 'home']);
 });
 Route::get('/events', [EventController::class, 'index']);
+Route::get('/ticket/{ticket:id}', [TicketController::class, 'index'])->name('ticket');
 Route::get('/events/{event:slug}',[EventController::class,'show'])->name('event')->middleware('auth');
 Route::post('/events/{event:slug}',[EventController::class,'buyTicket']);
 Route::get('/calendar', [CalendarController::class, 'show']);

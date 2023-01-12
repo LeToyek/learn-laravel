@@ -17,7 +17,10 @@
                 </div>
                 <h6 class="card-text"><span data-feather="map-pin" style="width: 16px"></span> {{ $event->location }}</h6>
                 <h6 class="card-text"><span data-feather="dollar-sign" style="width: 16px"></span> {{ $event->price }}</h6>
-                <h6 class="card-text"><span data-feather="clock" style="width: 16px"></span> {{ $event->event_date }}</h6>
+                <h6 class="card-text"><span data-feather="calendar" style="width: 16px"></span>
+                    {{ $event->event_date }}</h6>
+                <h6 class="card-text"><span data-feather="clock" style="width: 16px"></span>
+                    {{ date('g:i a', strtotime($event->start)) }} - {{ date('g:i a', strtotime($event->end)) }}</h6>
                 <p class="card-text">{{ $event->excerpt }}</p>
                 <form action="./{{ $event->slug }}" method="POST">
                     @csrf
