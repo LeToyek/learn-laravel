@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\RandId;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +16,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
+            $table->string('barcode')->unique();
             $table->foreignId('user_id');
             $table->foreignId('event_id');
             $table->timestamps();

@@ -13,25 +13,21 @@ class Ticket extends Model
     protected $guarded = ['id'];
     protected $with = ['event'];
 
-    protected $keyType = 'string';
-    protected $casts = ['id' => 'string'];
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($model) {
+            $model->barcode = ModelsRandId::generateID();
+        });
+    }
     public function event()
     {
         return $this->belongsTo(Event::class);
     }
 
-    public function getRouteKey()
+    public function getRouteKeyName()
     {
-        return $this->slug;
+        return $this->barcode;
     }
-
-    public $incrementing = false;
-
-    protected static function boot()
-    {
-        parent::boot();
-        static::creating(function ($model) {
-            $model->id = ModelsRandId::generateID();
-        });
-    }
+    
 }

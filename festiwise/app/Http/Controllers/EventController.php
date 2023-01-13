@@ -49,6 +49,6 @@ class EventController extends Controller
         $ticket = Ticket::create($validatedData);
         
         Alert::success('Payment Success', 'Your payment is already proceed, check your email to get your ticket');
-        return redirect('ticket/' . $ticket->id);
+        return redirect('ticket/' . $ticket->barcode);
     }
 }

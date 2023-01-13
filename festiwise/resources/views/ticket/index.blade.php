@@ -160,8 +160,9 @@
             <img class="img-fluid card-img-top" src="{{ asset('storage/' . $ticket->event->image) }}" class="img-fluid"
                 alt="yee">
         @else
-            <img class="img-fluid card-img-top" src="https://source.unsplash.com/1200x600/?{{ $ticket->event->category->name }}"
-                class="img-fluid" alt="yee">
+            <img class="img-fluid card-img-top"
+                src="https://source.unsplash.com/1200x600/?{{ $ticket->event->category->name }}" class="img-fluid"
+                alt="yee">
         @endif
     </div>
     <div class="info">
@@ -182,7 +183,7 @@
                 <th>End</th>
             </tr>
             <tr>
-                <td>{{ $ticket->event-$ticket->event_date }}</td>
+                <td>{{ $ticket->event->event_date }}</td>
                 <td>{{ $ticket->event->start }}</td>
                 <td>{{ $ticket->event->end }}</td>
             </tr>
@@ -195,22 +196,25 @@
             </tr>
         </table>
         <table class="numbers">
-            <input type="hidden" id="hidden_id" value="{{ echo decbin($ticket->id) }}" >
+            <input type="hidden" id="hidden_id" value="{{ $ticket->barcode }}">
             <tr>
-                {{ for ($i=0; $i <15 ; $i++) { 
-                    echo '<td>'.$ticket->id[$i] ' </td>'
-                } }}
+                @for ($i = 0; $i < 22; $i++)
+                    <td> {{ $ticket->barcode[$i] }} </td>
+                @endfor
             </tr>
         </table>
     </div>
 </div>
 <script>
     var code = document.getElementById('hidden_id').value
+    var binaryCode = ""
+    binaryCode = BigInt(code).toString(2)
+    console.log(binaryCode)
     table = document.querySelector('.myRow')
-    for (var i = 0; i < code.length; i++) {
+    for (var i = 0; i < binaryCode.length; i++) {
         const para = document.createElement("td");
         const att = document.createAttribute("bgColor")
-        if (code[i] == 1) {
+        if (binaryCode[i] == 1) {
             att.value = "black"
         } else {
             att.value = "white"
