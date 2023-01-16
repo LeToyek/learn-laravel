@@ -30,9 +30,8 @@ Route::get('/events', [EventController::class, 'index']);
 Route::get('/ticket/{ticket:barcode}', [TicketController::class, 'index'])->name('ticket');
 Route::get('/events/{event:slug}',[EventController::class,'show'])->name('event')->middleware('auth');
 Route::post('/events/{event:slug}',[EventController::class,'buyTicket']);
-Route::get('/category',[CategoryController::class,'index']);
 Route::get('/login', [LoginController::class,'index'])->name('login');
-Route::post('/login', [LoginController::class,'login']);
+Route::post('/login', [LoginController::class,'log  in']);
 Route::post('/logout',[LoginController::class,'logout']);
 Route::get('/register', [RegisterController::class,'index']);
 Route::post('/register', [RegisterController::class,'register']);
@@ -44,7 +43,6 @@ Route::get('/dashboard',function(){
     return view('dashboard.index',['title'=>'Dashboard', 'greet'=>'Hello '. auth()->user()->name]);
 })->middleware('auth');
 Route::resource('/dashboard/events',DashboardEventsController::class)->middleware('auth');
-
 Route::get('/email',function(){
     Mail::to(auth()->user()->email)->send(new WelcomeMail());
     return new WelcomeMail();
