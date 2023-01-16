@@ -27,7 +27,7 @@
                     <a class="nav-link {{ $title === 'events' ? 'active' : '' }}" href="/events">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'calendar' ? 'active' : '' }}" href="/calendar">Calendar</a>
+                    <a class="nav-link {{ $title === 'calendar' ? 'active' : '' }}" href="/dashboard/events/create">Create Event</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'category' ? 'active' : '' }}" href="/category">Category</a>
