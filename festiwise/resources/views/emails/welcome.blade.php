@@ -3,7 +3,7 @@
 
 The body of your message.
 
-<x-mail::button :url="''">
+<x-mail::button :url="'https::/www.code'">
 Button Text
 </x-mail::button>
 

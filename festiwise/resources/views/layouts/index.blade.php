@@ -13,7 +13,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
-<body data-bs-theme="dark">
+<body data-bs-theme="dark" style="min-height: 100vh">
     @include('sweetalert::alert')
     @include('layouts.partials.navbar')
     @yield('container')

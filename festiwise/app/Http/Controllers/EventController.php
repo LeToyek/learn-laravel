@@ -30,7 +30,7 @@ class EventController extends Controller
     }
     public function show(Event $event){
         return view('detail',[
-            'title'=> 'event',
+            'title'=> 'events',
             'event' => $event,
         ]);
     }

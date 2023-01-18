@@ -31,7 +31,7 @@ Route::get('/ticket/{ticket:barcode}', [TicketController::class, 'index'])->name
 Route::get('/events/{event:slug}',[EventController::class,'show'])->name('event')->middleware('auth');
 Route::post('/events/{event:slug}',[EventController::class,'buyTicket']);
 Route::get('/login', [LoginController::class,'index'])->name('login');
-Route::post('/login', [LoginController::class,'log  in']);
+Route::post('/login', [LoginController::class,'login']);
 Route::post('/logout',[LoginController::class,'logout']);
 Route::get('/register', [RegisterController::class,'index']);
 Route::post('/register', [RegisterController::class,'register']);
